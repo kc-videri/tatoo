@@ -6,7 +6,8 @@ jsdir = $(pkgdatadir)
 js_DATA = \
 	main.js
 
-bin_SCRIPTS = main.js
+bin_SCRIPTS = main.js \
+	localdata.js
 
 EXTRA_DIST = $(js_DATA)
 
