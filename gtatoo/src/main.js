@@ -33,7 +33,8 @@ const HelloWorld = new Lang.Class({
 
 		// currently only the local JSON data works
 		this._json_data = new LocalData.LocalJsonData();
-        
+		this._json_data.get_config_dir();
+
 		// connect the activate and startup signal to handlers
 		this.application.connect('activate',
 			Lang.bind(this, this._on_activate));

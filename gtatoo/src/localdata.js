@@ -19,12 +19,41 @@
  */
 
 const Lang = imports.lang;
+const GLib = imports.gi.GLib
+const Gio = imports.gi.Gio
+
+const LocalData = new Lang.Class({
+	Name: 'Local Data',
+
+	_init: function() {
+		print("LocalData::init"); // DELETE
+		var path;
+		var file_info;
+		var file;
+
+		path = GLib.get_user_data_dir() + "/gtatoo";
+		print("LocalData::init(): path: " + path); // DELETE
+		//file = new Gio.File(path);
+		file = Gio.File.new_for_path(path);
+		file_info = file.query_file_type(Gio.FileQueryInfoFlags.NONE, null);
+		if (file_info == Gio.FileType.UNKNOWN) {
+			print("unknown Make directory "); // DELETE
+		}
+	},
+
+	get_config_dir: function() {
+		print("LocalData::get_config_dir"); // DELETE
+	},
+
+})
 
 const LocalJsonData = new Lang.Class({
 	Name: 'Local JSON Data',
+	Extends: LocalData, 
 
 	_init: function() {
 		print("LocalJsonData::init"); // DELETE
+		this.parent();
 	},
 
 	/*
