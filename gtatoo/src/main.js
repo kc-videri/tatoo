@@ -28,10 +28,10 @@ const HelloWorld = new Lang.Class({
 
 	// create application
 	_init: function() {
-		print("_init()\n");
+		print("_init()\n"); // DELETE
 		this.application = new Gtk.Application();
 
-        // currently only the local JSON data works
+		// currently only the local JSON data works
 		this._json_data = new LocalData.LocalJsonData();
         
 		// connect the activate and startup signal to handlers
@@ -55,12 +55,12 @@ const HelloWorld = new Lang.Class({
 
 	_on_activate: function() {
 		// show the window and all children
-		print("_on_activate(): \n");
+		print("_on_activate(): \n"); // DELETE
 		this._window.show_all();
 	},
 
 	_on_startup: function() {
-		print("_on_startup(): \n");
+		print("_on_startup(): \n"); // DELETE
 		this._build_ui();
 		this._json_data.get_config_dir();
 	}

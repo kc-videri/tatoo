@@ -24,12 +24,14 @@ const LocalJsonData = new Lang.Class({
 	Name: 'Local JSON Data',
 
 	_init: function() {
-        print("LocalJsonData::init");
-    },
+		print("LocalJsonData::init"); // DELETE
+	},
 
+	/*
 	get_config_dir: function() {
-        print("LocalJsonData::get_config_dir");
-    },
+		print("LocalJsonData::get_config_dir"); // DELETE
+	},
+	*/
 
 })
 
