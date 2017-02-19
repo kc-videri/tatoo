@@ -1,4 +1,3 @@
-
 /* -*- Mode: javascript; indent-tabs-mode: nil; c-basic-offset: 4; tab-width: 4 -*-  */
 /*
  * local-json-data.js
@@ -30,6 +29,7 @@ const LocalData = new Lang.Class({
 		var path;
 		var file_info;
 		var file;
+		var retval;
 
 		path = GLib.get_user_data_dir() + "/gtatoo";
 		print("LocalData::init(): path: " + path); // DELETE
@@ -38,6 +38,11 @@ const LocalData = new Lang.Class({
 		file_info = file.query_file_type(Gio.FileQueryInfoFlags.NONE, null);
 		if (file_info == Gio.FileType.UNKNOWN) {
 			print("unknown Make directory "); // DELETE
+			retval = file.make_directory(null);
+			if (retval == false) {
+				print("Cannot create data directory");
+				exit(-1);
+			}
 		}
 	},
 
