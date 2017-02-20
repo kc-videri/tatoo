@@ -18,6 +18,8 @@
  * with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+'use strict';
+
 const GLib = imports.gi.GLib
 const Lang = imports.lang;
 const Gtk = imports.gi.Gtk;

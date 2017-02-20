@@ -17,6 +17,8 @@
  * with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+'use strict';
+
 const Lang = imports.lang;
 const GLib = imports.gi.GLib
 const Gio = imports.gi.Gio
