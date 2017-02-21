@@ -1,17 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schemalist gettext-domain="tatoo">
-  <schema path="/org/gnome/gtatoo/" id="org.gnome.shell.gtatoo">
+  <schema path="/org/gnome/gtatoo/" id="org.gnome.gtatoo">
     <key type="b" name="local">
         <default>true</default>
         <summary>The data are only stored local</summary>
         <description></description>
     </key>
-    <key type="b" name="suspend-default">
+    <key type="b" name="test-boolean">
         <default>true</default>
-        <summary>Set suspend as default</summary>
-        <description>Change alt-switch-buttons behaviour to default to suspend.
-        Press alt to shutdown.
-        This setting has no effect if two buttons are shown.</description>
+        <summary>Test boolean</summary>
+        <description>Only for testing.</description>
     </key>
   </schema>
 </schemalist>
