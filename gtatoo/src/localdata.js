@@ -23,6 +23,8 @@ const Lang = imports.lang;
 const GLib = imports.gi.GLib
 const Gio = imports.gi.Gio
 
+const DATA_FOLDER = "/gtatoo"
+
 const LocalData = new Lang.Class({
 	Name: 'Local Data',
 
@@ -33,7 +35,7 @@ const LocalData = new Lang.Class({
 		var file;
 		var retval;
 
-		path = GLib.get_user_data_dir() + "/gtatoo";
+		path = GLib.get_user_data_dir() + DATA_FOLDER;
 		print("LocalData::init(): path: " + path); // DELETE
 		//file = new Gio.File(path);
 		file = Gio.File.new_for_path(path);
