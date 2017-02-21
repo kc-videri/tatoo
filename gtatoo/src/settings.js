@@ -23,8 +23,8 @@ const Gio = imports.gi.Gio;
 const Lang = imports.lang;
 const GLib = imports.gi.GLib
 
-const TEST_BOOLEAN = 'test-boolean';
 const ONLY_LOCAL = 'local';
+const TEST_BOOLEAN = 'test-boolean';
 
 const Settings = new Lang.Class({
 	Name: 'Settings',
@@ -49,9 +49,11 @@ const Settings = new Lang.Class({
 	},
 
 	is_local: function() {
+		return(this._settings.get_boolean(ONLY_LOCAL));
 	},
 
 	set_local: function(status) {
+		this._settings.set_boolean(ONLY_LOCAL, status);
 	},
 
 	is_test: function() {
