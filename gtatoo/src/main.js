@@ -31,7 +31,7 @@ const HelloWorld = new Lang.Class({
 
 	// create application
 	_init: function() {
-		print("_init()\n"); // DELETE
+		print("_init()"); // DELETE
 		this.application = new Gtk.Application();
 
 		this._settings = new Settings.Settings();
@@ -64,12 +64,12 @@ const HelloWorld = new Lang.Class({
 
 	_on_activate: function() {
 		// show the window and all children
-		print("_on_activate(): \n"); // DELETE
+		print("_on_activate(): "); // DELETE
 		this._window.show_all();
 	},
 
 	_on_startup: function() {
-		print("_on_startup(): \n"); // DELETE
+		print("_on_startup(): "); // DELETE
 		this._build_ui();
 		this._json_data.get_config_dir();
 	},
