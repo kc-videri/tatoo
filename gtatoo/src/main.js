@@ -24,10 +24,7 @@ const GLib = imports.gi.GLib
 const Lang = imports.lang;
 const Gtk = imports.gi.Gtk;
 const LocalData = imports.localdata;
-const Gio = imports.gi.Gio
-
-const TEST_BOOLEAN = 'test-boolean';
-const ONLY_LOCAL = 'local';
+const Settings = imports.settings;
 
 const HelloWorld = new Lang.Class({
 	Name: 'Application',
@@ -36,6 +33,11 @@ const HelloWorld = new Lang.Class({
 	_init: function() {
 		print("_init()\n"); // DELETE
 		this.application = new Gtk.Application();
+
+		this._settings = new Settings.Settings();
+		print("Status of test setting: " + this._settings.is_test());
+		this._settings.set_test(! this._settings.is_test());
+		print("Status of test setting: " + this._settings.is_test());
 
 		// currently only the local JSON data works
 		this._json_data = new LocalData.LocalJsonData();
@@ -72,37 +74,16 @@ const HelloWorld = new Lang.Class({
 		this._json_data.get_config_dir();
 	},
 	
-	get_settings: function() {
-		print("settings 00");
-		let schema_name = 'org.gnome.gtatoo';
-		//let schema_dir = extension.dir.get_child('schemas').get_path();
-		let schema_dir = "schemas/"
-
-		// Extension installed in .local
-		if (GLib.file_test(schema_dir + '/gschemas.compiled', GLib.FileTest.EXISTS)) {
-			print("settings 20");
-			let schema_source = Gio.SettingsSchemaSource.new_from_directory(schema_dir,
-				Gio.SettingsSchemaSource.get_default(), false);
-			let schema = schema_source.lookup(schema_name, false);
-
-			return new Gio.Settings({settings_schema: schema});
-		} else {
-			print("settings 30");
-			if (Gio.Settings.list_schemas().indexOf(schema_name) == -1)
-				throw "Schema \"%s\" not found.".format(schema_name);
-			return new Gio.Settings({schema: schema_name});
-		}
-
-	}
-
 })
 
 let app = new HelloWorld();
 
 // settings
+/*
 let settings = app.get_settings();
 print("Status of test setting: " + settings.get_boolean(TEST_BOOLEAN));
 settings.set_boolean(TEST_BOOLEAN, ! settings.get_boolean(TEST_BOOLEAN));
 print("Status of test setting: " + settings.get_boolean(TEST_BOOLEAN));
+*/
 
 app.application.run(ARGV);

@@ -7,7 +7,8 @@ js_DATA = \
 	main.js
 
 bin_SCRIPTS = main.js \
-	localdata.js
+	localdata.js \
+	settings.js
 
 EXTRA_DIST = $(js_DATA)
 
